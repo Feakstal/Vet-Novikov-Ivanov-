@@ -1,0 +1,62 @@
+﻿<Page x:Class="Vet.Pages.MedcardsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vet.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1600"
+      Title="Медкарты">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7.5*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="left" Margin="0 0 150 0" Orientation="Horizontal">
+            <TextBlock Text="Медкарты" Margin="5" Style="{StaticResource tbTitlePage}"/>
+        </StackPanel>
+        <WrapPanel Grid.Row="0" HorizontalAlignment="right" Margin="0 0 150 0">
+            <Grid>
+                <TextBox x:Name="Search" Style="{StaticResource tbAuthWindow}" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="250">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </TextBox.Effect>
+                </TextBox>
+                <TextBlock IsHitTestVisible="False" Text="Поиск в реальном времени..." FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=Search}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Setter Property="Foreground" Value="Gray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </WrapPanel>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="btnGoBack" Style="{StaticResource btnAllPandW}" Content="Назад" Click="btnGoBack_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <DataGrid x:Name="MedcardsGrid" ItemsSource="{Binding Medcards}" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" IsReadOnly="True" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding IDMedcard}"/>
+                <DataGridTextColumn Header="ID пациента" Binding="{Binding IDPatient}"/>
+                <DataGridTextColumn Header="Текущее состояние" Binding="{Binding CurrentState}"/>
+                <DataGridTextColumn Header="История болезней" Binding="{Binding History}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

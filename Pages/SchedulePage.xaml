@@ -1,0 +1,24 @@
+﻿<Page x:Class="Vet.Pages.SchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vet.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="Расписание">
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+    <Border BorderBrush="Gray" CornerRadius="10" BorderThickness="2" Background="GhostWhite">
+        <Grid>
+            <ListView Margin="0 10 0 10" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Stretch">
+                <ListViewItem Content="Ближайшие смены:"/>
+                <ListViewItem Content="05.11.2021 9-21"/>
+            </ListView>
+        </Grid>
+    </Border>
+</Page>

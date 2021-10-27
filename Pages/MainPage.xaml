@@ -1,0 +1,113 @@
+﻿<Page x:Class="Vet.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vet.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1600"
+      Title="Главное меню">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="GoEmployees" Content="Сотрудники" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" Click="GoEmployees_Click_1">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Кабинеты" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" x:Name="GoCabs" Click="GoCabs_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="GoClients"  Content="Клиенты" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" Click="GoClients_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="Медицинские карты" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" Name="GoMedcards" Click="GoMedcards_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnCheques" Content="Архив чеков" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" Click="btnCheques_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Услуги и расценки" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" FontFamily="Franklin Gothic Medium" x:Name="GoServices" Click="GoServices_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button IsEnabled="False" Content="Графики работы" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Ближайшие записи" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" IsEnabled="False">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnPreps" Content="Препараты" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" IsEnabled="False">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+    </Grid>
+</Page>
