@@ -18,6 +18,7 @@ namespace Vet.DataBase
         public int IDPatient { get; set; }
         public string CurrentState { get; set; }
         public string History { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Patient Patient { get; set; }
     }

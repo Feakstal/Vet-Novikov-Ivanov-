@@ -152,6 +152,12 @@
     <Compile Include="Views\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEmpWindow.xaml.cs">
+      <DependentUpon>AddEmpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddMedcardWindow.xaml.cs">
+      <DependentUpon>AddMedcardWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddPatientWindow.xaml.cs">
       <DependentUpon>AddPatientWindow.xaml</DependentUpon>
     </Compile>
@@ -238,6 +244,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEmpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddMedcardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

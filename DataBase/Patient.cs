@@ -26,7 +26,7 @@ namespace Vet.DataBase
         public byte Age { get; set; }
         public Nullable<int> IDAnimalGender { get; set; }
         public Nullable<int> IDAnimalType { get; set; }
-        public bool IsDeleted { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual AnimalGender AnimalGender { get; set; }
         public virtual AnimalType AnimalType { get; set; }

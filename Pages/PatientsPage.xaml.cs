@@ -26,7 +26,7 @@ namespace Vet.Pages
 
         Entities Entities = new Entities();
         public Role role;
-
+        public Patient p;
         public PatientsPage()
         {
             InitializeComponent();

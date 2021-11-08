@@ -60,7 +60,7 @@
           <Property Name="PassSerial" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="PassNumber" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="IDPatient" Type="int" />
-          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -74,6 +74,7 @@
           <Property Name="PassSerial" Type="nchar" MaxLength="4" Nullable="false" />
           <Property Name="PassNumber" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Medcard">
           <Key>
@@ -83,6 +84,7 @@
           <Property Name="IDPatient" Type="int" Nullable="false" />
           <Property Name="CurrentState" Type="nvarchar(max)" />
           <Property Name="History" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
@@ -93,7 +95,7 @@
           <Property Name="Age" Type="tinyint" Nullable="false" />
           <Property Name="IDAnimalGender" Type="int" />
           <Property Name="IDAnimalType" Type="int" />
-          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -391,7 +393,7 @@
           <Property Name="PassSerial" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PassNumber" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="IDPatient" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDCli__74AE54BC" FromRole="Client" ToRole="Appointment" />
           <NavigationProperty Name="Patient" Relationship="Self.FK__Client__IDPatien__6FE99F9F" FromRole="Client" ToRole="Patient" />
         </EntityType>
@@ -407,6 +409,7 @@
           <Property Name="PassSerial" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PassNumber" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDEmp__75A278F5" FromRole="Employee" ToRole="Appointment" />
           <NavigationProperty Name="User" Relationship="Self.FK__User__IDEmployee__440B1D61" FromRole="Employee" ToRole="User" />
         </EntityType>
@@ -418,6 +421,7 @@
           <Property Name="IDPatient" Type="Int32" Nullable="false" />
           <Property Name="CurrentState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Patient" Relationship="Self.FK__Medcard__IDPatie__02FC7413" FromRole="Medcard" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Patient">
@@ -429,7 +433,7 @@
           <Property Name="Age" Type="Byte" Nullable="false" />
           <Property Name="IDAnimalGender" Type="Int32" />
           <Property Name="IDAnimalType" Type="Int32" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="AnimalGender" Relationship="Self.FK__Patient__IDAnima__5CD6CB2B" FromRole="Patient" ToRole="AnimalGender" />
           <NavigationProperty Name="AnimalType" Relationship="Self.FK__Patient__IDAnima__5DCAEF64" FromRole="Patient" ToRole="AnimalType" />
           <NavigationProperty Name="Client" Relationship="Self.FK__Client__IDPatien__6FE99F9F" FromRole="Patient" ToRole="Client" />
@@ -746,6 +750,7 @@
                 <ScalarProperty Name="PassSerial" ColumnName="PassSerial" />
                 <ScalarProperty Name="PassNumber" ColumnName="PassNumber" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -756,6 +761,7 @@
                 <ScalarProperty Name="IDPatient" ColumnName="IDPatient" />
                 <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
                 <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
