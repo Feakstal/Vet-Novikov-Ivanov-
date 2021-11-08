@@ -46,14 +46,14 @@ namespace Vet.Views
 
             if (authUser != null)
             {
-                MessageBox.Show("Вы успешно авторизованы.");
+                MessageBox.Show("Вы успешно авторизованы.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainMenu mainWindow = new MainMenu();
                 mainWindow.Show();
                 Hide();
             }
             else
             {
-                MessageBox.Show("Вы ввели некорректные данные.");
+                MessageBox.Show("Вы ввели некорректные данные.", "Некорректные данные", MessageBoxButton.OK, MessageBoxImage.Error);
                 Tb2.Text = null;
             }
         }
@@ -64,12 +64,3 @@ namespace Vet.Views
         }
     }
 }
-
-/* EmployeeSchedule : только менеджер
-IDEmployee
-Datetime-start
-datetime-finish
-freedayspermonth
-HoursPerMonth
-OffDaysPerMonth
-*/

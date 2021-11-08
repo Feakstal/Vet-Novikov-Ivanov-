@@ -3,29 +3,37 @@ using System.Windows;
 using Vet.Pages;
 using Vet.DataBase;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Vet.Views
 {
     public partial class MainMenu : Window
     {
         public static Entities Entities = new Entities();
-        public User userUpdate = AuthWindow.authUser;
         public Employee employee;
+        public Role role;
         public MainMenu()
         {
             InitializeComponent();
+            role = Entities.Role.Find(AuthWindow.authUser.Role.IDRole);
+            if (role.RoleName.Equals("Врач"))
+                tblockTitle.Text = "Окно врача";
+            else if (role.RoleName.Equals("Администратор"))
+                tblockTitle.Text = "Окно администратора";
+            else if (role.RoleName.Equals("Менеджер"))
+                tblockTitle.Text = "Окно менеджера";
             MM = this;
             employee = Entities.Employee.Find(AuthWindow.authUser.Employee.IDEmployee);
             frmLoader.Navigate(new MainPage());
             frmLoader2.Navigate(new SchedulePage());
-            tbkFIO.Text = userUpdate.Employee.Surname + " " + userUpdate.Employee.Name + " " + userUpdate.Employee.FatherName;
-            tbkRank.Text = userUpdate.Role.RoleName;
+            tbkFIO.Text = AuthWindow.authUser.Employee.Surname + " " + AuthWindow.authUser.Employee.Name + " " + AuthWindow.authUser.Employee.FatherName;
+            tbkRank.Text = AuthWindow.authUser.Role.RoleName;
             tbxPhone.Text = employee.Phone;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var timer = new System.Windows.Threading.DispatcherTimer();
+            var timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.IsEnabled = true;
             timer.Tick += (o, t) => { lbCurrentDateTime.Content = DateTime.Now.ToString(); };
@@ -44,9 +52,8 @@ namespace Vet.Views
         {
             employee = Entities.Employee.Find(AuthWindow.authUser.Employee.IDEmployee);
             if (tbxPhone == null)
-            {
                 MessageBox.Show("Заполните поле 'Телефон'", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
             var res = MessageBox.Show("Вы хотите сохранить изменения?", "да", MessageBoxButton.YesNo);
             if (res == MessageBoxResult.Yes)
             {

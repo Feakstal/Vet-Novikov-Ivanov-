@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vet.Views"
         mc:Ignorable="d"
-        Title="MainMenu" x:Name="MM" Height="900" Width="1600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded">
+        Title="MainMenu" x:Name="MM" Height="900" Width="1600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded" Icon="/Resources/MainIcon.png">
     <Border Style="{StaticResource WindowBorder}" MouseDown="Drag">
         <Grid>
             <Grid.RowDefinitions>
@@ -13,8 +13,9 @@
                 <RowDefinition Height="7.75*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Margin="15" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock x:Name="tblockTitle" Text="" Margin="0 0 0 20" Style="{StaticResource tbTitlePage}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <Image Width="100" Height="100" Source="/Resources/man.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Image Width="100" Height="100" Source="/Resources/MainIcon.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     <StackPanel Margin="15 0 0 0" Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBlock x:Name="tbkFIO" Text="Фио" FontSize="20"/>
                         <TextBlock x:Name="tbkRank" Text="Должность" FontSize="20"/>

@@ -28,6 +28,7 @@ namespace Vet.DataBase
         public string PassSerial { get; set; }
         public string PassNumber { get; set; }
         public Nullable<int> IDPatient { get; set; }
+        public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }

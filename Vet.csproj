@@ -140,11 +140,20 @@
     <Compile Include="Pages\MedcardsPage.xaml.cs">
       <DependentUpon>MedcardsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PatientsPage.xaml.cs">
+      <DependentUpon>PatientsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SchedulePage.xaml.cs">
       <DependentUpon>SchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ServicesPage.xaml.cs">
       <DependentUpon>ServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddClientWindow.xaml.cs">
+      <DependentUpon>AddClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddPatientWindow.xaml.cs">
+      <DependentUpon>AddPatientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
@@ -212,6 +221,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PatientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -221,6 +234,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,7 +255,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\man.png" />
+    <Resource Include="Resources\MainIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

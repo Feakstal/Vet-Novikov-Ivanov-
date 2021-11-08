@@ -1,50 +1,68 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Vet.DataBase;
+using Vet.Views;
 
 namespace Vet.Pages
 {
     public partial class MainPage : Page
     {
+        public Entities Entities = new Entities();
+        public Role role;
         public MainPage()
         {
             InitializeComponent();
+            role = Entities.Role.Find(AuthWindow.authUser.Role.IDRole);
+            if (role.RoleName.Equals("Врач"))
+            {
+                btnShowCheques.IsEnabled = false;
+                btnShowEmployees.IsEnabled = false;
+                btnShowCabs.IsEnabled = false;
+            }
+            //else if (role.RoleName.Equals("Администратор"))
+            //{
+
+            //}
+            //else if (role.RoleName.Equals("Менеджер"))
+            //{
+
+            //}
         }
 
-        private void GoServices_Click(object sender, RoutedEventArgs e)
+        private void btnShowServices_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new ServicesPage());
+            NavigationService.Navigate(new ServicesPage());
         }
 
-        private void GoCabs_Click(object sender, RoutedEventArgs e)
+        private void btnShowCabs_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new CabsPage());
+            NavigationService.Navigate(new CabsPage());
         }
 
-        private void GoMedcards_Click(object sender, RoutedEventArgs e)
+        private void btnShowMedcards_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new MedcardsPage());
+            NavigationService.Navigate(new MedcardsPage());
         }
 
-        private void GoEmployees_Click_1(object sender, RoutedEventArgs e)
+        private void btnShowEmployees_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new EmployeesPage());
+            NavigationService.Navigate(new EmployeesPage());
         }
 
-        private void GoClients_Click(object sender, RoutedEventArgs e)
+        private void btnShowClients_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new ClientsPage());
+            NavigationService.Navigate(new ClientsPage());
         }
 
-        private void btnCheques_Click(object sender, RoutedEventArgs e)
+        private void btnShowCheques_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
-            ns.Navigate(new ChequesPage());
+            NavigationService.Navigate(new ChequesPage());
+        }
+
+        private void btnShowPatients_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PatientsPage());
         }
     }
 }
