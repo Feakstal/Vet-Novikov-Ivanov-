@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+=======
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
 using System.Windows.Navigation;
 using Vet.DataBase;
 using Vet.Views;
@@ -15,21 +21,27 @@ namespace Vet.Pages
     public partial class EmployeesPage : Page
     {
         public Entities Entities = new Entities();
-        public static User authUser;
+<<<<<<< HEAD
         public Role role;
+=======
+        public static User authUser;
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
         public EmployeesPage()
         {
             InitializeComponent();
             EmployeesGrid.ItemsSource = Entities.Employee.ToList();
+<<<<<<< HEAD
             role = Entities.Role.Find(AuthWindow.authUser.Role.IDRole);
             if (role.RoleName.Equals("Врач"))
             {
-                btnDeleteEmp.Visibility = Visibility.Collapsed;
-                btnSaveEmp.Visibility = Visibility.Collapsed;
-                btnAddEmp.Visibility = Visibility.Collapsed;
+                btnDelete.Visibility = Visibility.Collapsed;
+                btnSave.Visibility = Visibility.Collapsed;
+                btnAddEmployeeWindow.Visibility = Visibility.Collapsed;
                 EmployeesGrid.CanUserAddRows = false;
                 EmployeesGrid.IsReadOnly = true;
             }
+=======
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -61,31 +73,37 @@ namespace Vet.Pages
             public string Address { get; set; }
         }
 
-        private void btnAddEmp_Click(object sender, RoutedEventArgs e)
+<<<<<<< HEAD
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            AddEmpWindow aew = new AddEmpWindow();
-            aew.ShowDialog();
+            Entities.SaveChanges();
+            MessageBox.Show("Данные успешно сохранены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void btnDeleteEmp_Click(object sender, RoutedEventArgs e)
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Вы хотите удалить данную запись?", "Удаление клиента", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                if (EmployeesGrid.SelectedItem is Employee E)
+            {
+                if (EmployeesGrid.SelectedItem is Employee employee)
                 {
-                    E.IsDeleted = true;
+                    employee.IsDeleted = true;
                     Entities.SaveChanges();
                     MessageBox.Show("Запись успешно удалена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     EmployeesGrid.ItemsSource = Entities.Employee.ToList();
                 }
                 else
+                {
                     MessageBox.Show("Вы не выбрали пользователя из списка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
-        private void btnSaveEmp_Click(object sender, RoutedEventArgs e)
+        private void btnAddEmployeeWindow_Click(object sender, RoutedEventArgs e)
         {
-            Entities.SaveChanges();
-            MessageBox.Show("Данные успешно сохранены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
+            addEmployeeWindow.ShowDialog();
         }
+
         private void tboxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             string filter = tboxSearch.Text;
@@ -99,6 +117,16 @@ namespace Vet.Pages
                     return p.Surname.ToString().ToLower().Contains(filter);
                 };
                 EmployeesGrid.ItemsSource = viewSource;
+=======
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            switch (AuthWindow.authUser.IDRole)
+            {
+                case 1: EmployeesGrid.IsReadOnly = false; break;
+                case 2: EmployeesGrid.IsReadOnly = true; break;
+                case 3: EmployeesGrid.IsReadOnly = false; break;
+                default: break;
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
             }
         }
     }

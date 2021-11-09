@@ -85,7 +85,7 @@
                 <DataGridTextColumn Header="Номер" Binding="{Binding IDPatient}"/>
                 <DataGridTextColumn Header="Кличка" Binding="{Binding PatientName}"/>
                 <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding AnimalGender.AnimalGender1}" />
+                <DataGridComboBoxColumn Header="Пол" ItemsSource="{Binding Source=AnimalGender.AnimalGender1, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding AnimalType.AnimalType1}"/>
                 <DataGridTextColumn Header="Удален" Binding="{Binding IsDeleted}"/>
             </DataGrid.Columns>

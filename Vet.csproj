@@ -152,8 +152,9 @@
     <Compile Include="Views\AddClientWindow.xaml.cs">
       <DependentUpon>AddClientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddEmpWindow.xaml.cs">
-      <DependentUpon>AddEmpWindow.xaml</DependentUpon>
+<<<<<<< HEAD
+    <Compile Include="Views\AddEmployeeWindow.xaml.cs">
+      <DependentUpon>AddEmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddMedcardWindow.xaml.cs">
       <DependentUpon>AddMedcardWindow.xaml</DependentUpon>
@@ -161,6 +162,14 @@
     <Compile Include="Views\AddPatientWindow.xaml.cs">
       <DependentUpon>AddPatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddServiceWindow.xaml.cs">
+      <DependentUpon>AddServiceWindow.xaml</DependentUpon>
+    </Compile>
+=======
+    <Compile Include="Views\AddPatientWindow.xaml.cs">
+      <DependentUpon>AddPatientWindow.xaml</DependentUpon>
+    </Compile>
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
     <Compile Include="Views\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
@@ -247,7 +256,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddEmpWindow.xaml">
+<<<<<<< HEAD
+    <Page Include="Views\AddEmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,10 +265,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
     <Page Include="Views\AddPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Views\AddServiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+=======
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
     <Page Include="Views\AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

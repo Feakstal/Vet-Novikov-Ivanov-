@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vet.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="900"
+      d:DesignHeight="600" d:DesignWidth="1600"
       Title="Медкарты">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,21 +14,21 @@
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" HorizontalAlignment="left" Margin="0 0 150 0" Orientation="Horizontal">
-            <TextBlock Text="Список медкарт" Margin="5" Style="{StaticResource tbTitlePage}"/>
+            <TextBlock Text="Медкарты" Margin="5" Style="{StaticResource tbTitlePage}"/>
         </StackPanel>
-        <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 0 0 0">
+        <WrapPanel Grid.Row="0" HorizontalAlignment="right" Margin="0 0 150 0">
             <Grid>
-                <TextBox x:Name="tboxSearch" Style="{StaticResource tbAuthWindow}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="250" TextChanged="tboxSearch_TextChanged">
+                <TextBox x:Name="Search" Style="{StaticResource tbAuthWindow}" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="250">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock IsHitTestVisible="False" Text="Поиск" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
+                <TextBlock IsHitTestVisible="False" Text="Поиск в реальном времени..." FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility" Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tboxSearch}" Value="">
+                                <DataTrigger Binding="{Binding Text, ElementName=Search}" Value="">
                                     <Setter Property="Visibility" Value="Visible"/>
                                     <Setter Property="Foreground" Value="Gray"/>
                                 </DataTrigger>
@@ -38,10 +38,15 @@
                 </TextBlock>
             </Grid>
         </WrapPanel>
+<<<<<<< HEAD
         <WrapPanel HorizontalAlignment="Center" Grid.Row="2">
-            <Button x:Name="btnAddClientWindow" Style="{StaticResource btnAllPandW}" Content="Добавить запись" Click="btnAddClientWindow_Click" Margin="0 10 15 0">
+            <Button x:Name="btnAddMedcardWindow" Style="{StaticResource btnAllPandW}" Content="Добавить запись" Click="btnAddMedcardWindow_Click" Margin="0 10 15 0">
+=======
+        <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="btnGoBack" Style="{StaticResource btnAllPandW}" Content="Назад" Click="btnGoBack_Click">
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
                 <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                 </Button.Effect>
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -49,44 +54,20 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="btnDelete" Style="{StaticResource btnAllPandW}" Content="Удалить запись" Click="btnDelete_Click" Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnSave" Style="{StaticResource btnAllPandW}" Content="Сохранить" Click="btnSave_Click" Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnGoBack" Style="{StaticResource btnAllPandW}" Content="Главное меню" Click="btnGoBack_Click" Margin="0 10 0 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </WrapPanel>
-        <DataGrid x:Name="MedcardsGrid" ItemsSource="{Binding Medcard}" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" IsReadOnly="False">
+        </StackPanel>
+        <DataGrid x:Name="MedcardsGrid" ItemsSource="{Binding Medcards}" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" IsReadOnly="True" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding IDMedcard}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Patient.PatientName}"/>
+<<<<<<< HEAD
+                <DataGridTextColumn Header="Кличка пациента" Binding="{Binding Patient.PatientName}"/>
                 <DataGridTextColumn Header="Статус" Binding="{Binding CurrentState}"/>
-                <DataGridTextColumn Header="История" Binding="{Binding History}"/>
+                <DataGridTextColumn Header="История заболеваний" Binding="{Binding History}" />
                 <DataGridTextColumn Header="Удален" Binding="{Binding IsDeleted}"/>
+=======
+                <DataGridTextColumn Header="ID пациента" Binding="{Binding IDPatient}"/>
+                <DataGridTextColumn Header="Текущее состояние" Binding="{Binding CurrentState}"/>
+                <DataGridTextColumn Header="История болезней" Binding="{Binding History}"/>
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

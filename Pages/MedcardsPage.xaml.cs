@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -7,15 +8,32 @@ using System.Windows.Navigation;
 using Vet.DataBase;
 using Vet.Views;
 
+=======
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Vet.DataBase;
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
 namespace Vet.Pages
 {
     public partial class MedcardsPage : Page
     {
         public Entities Entities = new Entities();
+        public Role role;
         public MedcardsPage()
         {
             InitializeComponent();
             MedcardsGrid.ItemsSource = Entities.Medcard.ToList();
+            role = Entities.Role.Find(AuthWindow.authUser.Role.IDRole);
+            if (role.RoleName.Equals("Врач"))
+            {
+                btnDelete.Visibility = Visibility.Collapsed;
+                btnSave.Visibility = Visibility.Collapsed;
+                btnAddMedcardWindow.Visibility = Visibility.Collapsed;
+                MedcardsGrid.CanUserAddRows = false;
+                MedcardsGrid.IsReadOnly = true;
+            }
         }
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
         {
@@ -25,22 +43,21 @@ namespace Vet.Pages
 
         class MedcardsTable
         {
-            public MedcardsTable(int IDMedcard, int IDPatient, string CurrentState, string History, bool IsDeleted)
+            public MedcardsTable(int IDMedcard, int IDPatient, string CurrentState, string History)
             {
                 this.IDMedcard = IDMedcard;
                 this.IDPatient = IDPatient;
                 this.CurrentState = CurrentState;
                 this.History = History;
-                this.IsDeleted = IsDeleted;
             }
             public int IDMedcard { get; set; }
             public int IDPatient { get; set; }
             public string CurrentState { get; set; }
             public string History { get; set; }
+<<<<<<< HEAD
             public bool IsDeleted { get; set; }
 
         }
-
         private void tboxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             string filter = tboxSearch.Text;
@@ -48,15 +65,15 @@ namespace Vet.Pages
             if (filter == "") viewSource.Filter = null;
             else
             {
-                viewSource.Filter = SN =>
+                viewSource.Filter = PN =>
                 {
-                    Medcard p = SN as Medcard;
-                    return p.IDPatient.ToString().ToLower().Contains(filter);
+                    Medcard p = PN as Medcard;
+                    return p.Patient.PatientName.ToString().ToLower().Contains(filter);
                 };
                 MedcardsGrid.ItemsSource = viewSource;
             }
         }
-        private void btnAddClientWindow_Click(object sender, RoutedEventArgs e)
+        private void btnAddMedcardWindow_Click(object sender, RoutedEventArgs e)
         {
             AddMedcardWindow addMedcardWindow = new AddMedcardWindow();
             addMedcardWindow.ShowDialog();
@@ -66,9 +83,9 @@ namespace Vet.Pages
         {
             if (MessageBox.Show("Вы хотите удалить данную запись?", "Удаление клиента", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                if (MedcardsGrid.SelectedItem is Client client)
+                if (MedcardsGrid.SelectedItem is Medcard medcard)
                 {
-                    client.IsDeleted = true;
+                    medcard.IsDeleted = true;
                     Entities.SaveChanges();
                     MessageBox.Show("Запись успешно удалена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     MedcardsGrid.ItemsSource = Entities.Medcard.ToList();
@@ -84,6 +101,9 @@ namespace Vet.Pages
         {
             Entities.SaveChanges();
             MessageBox.Show("Данные успешно сохранены.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+=======
+
+>>>>>>> parent of a57e67c (medcards доделать добавить-удалить-редактировать)
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Vet.Views.AddClientWindow"
+﻿<Window x:Class="Vet.Views.AddEmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vet.Views"
         mc:Ignorable="d"
-        Title="Добавление клиента" x:Name="ACWindow" Height="700" Width="600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Icon="/Resources/MainIcon.png">
+        Title="Добавление сотрудника" x:Name="AEWindow" Height="700" Width="600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Icon="/Resources/MainIcon.png">
     <Border Style="{StaticResource WindowBorder}" MouseDown="Drag">
         <Grid>
             <Grid>
@@ -90,8 +90,8 @@
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Кличка пациента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="7" Grid.Column="1" x:Name="tboxAddPatient" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Адрес:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="7" Grid.Column="1" x:Name="tboxAddAddress" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>

@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
 using Vet.DataBase;
@@ -6,35 +6,35 @@ using Vet.DataBase;
 namespace Vet.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddMedcardWindow.xaml
+    /// Логика взаимодействия для AddServiceWindow.xaml
     /// </summary>
-    public partial class AddMedcardWindow : Window
+    public partial class AddServiceWindow : Window
     {
 
         Entities Entities = new Entities();
 
-        public AddMedcardWindow()
+        public AddServiceWindow()
         {
             InitializeComponent();
-            AMWindow = this;
-            tblockTitle.Text = "Добавление медкарты";
+            ASWindow = this;
+            tblockTitle.Text = "Добавление услуги";
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (tboxAddPatient.Text.Length != 0 || tboxAddCurrentState.Text.Length != 0)
+            if (tboxAddService.Text.Length != 0)
             {
 
-                Entities.Medcard.Add(new Medcard
+                Entities.Service.Add(new Service
                 {
-                    IDPatient = Entities.Patient.Where(i => i.PatientName == tboxAddPatient.Text).Select(i => i.IDPatient).FirstOrDefault(),
-                    CurrentState = tboxAddCurrentState.Text,
-                    History = tboxAddHistory.Text,
+                    ServiceName = tboxAddService.Text,
+                    Price = Convert.ToDecimal(tboxAddPrice.Text),
+                    Length = Convert.ToByte(tboxAddLength.Text),
                     IsDeleted = false
                 });
 
                 Entities.SaveChanges();
-                MessageBox.Show($"Пациент {tboxAddPatient.Text} успешно добавлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Пациент {tboxAddService.Text} успешно добавлен.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
             else
@@ -49,7 +49,7 @@ namespace Vet.Views
         private void Drag(object sender, MouseButtonEventArgs e)
         {
             if (Mouse.LeftButton == MouseButtonState.Pressed)
-                AMWindow.DragMove();
+                ASWindow.DragMove();
         }
     }
 }
