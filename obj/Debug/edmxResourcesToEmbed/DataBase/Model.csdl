@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AnimalGender">
+    <Key>
+      <PropertyRef Name="IDAnimalGender" />
+    </Key>
+    <Property Name="IDAnimalGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnimalGender1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Patient__IDAnima__5CD6CB2B" FromRole="AnimalGender" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="AnimalType">
+    <Key>
+      <PropertyRef Name="IDAnimalType" />
+    </Key>
+    <Property Name="IDAnimalType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AnimalType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Patient__IDAnima__5DCAEF64" FromRole="AnimalType" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="IDApp" />
+    </Key>
+    <Property Name="IDApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDCab" Type="Int32" />
+    <Property Name="IDService" Type="Int32" />
+    <Property Name="IDClient" Type="Int32" />
+    <Property Name="IDEmployee" Type="Int32" />
+    <NavigationProperty Name="Cab" Relationship="Self.FK__Appointme__IDCab__72C60C4A" FromRole="Appointment" ToRole="Cab" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Appointme__IDCli__74AE54BC" FromRole="Appointment" ToRole="Client" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Appointme__IDEmp__75A278F5" FromRole="Appointment" ToRole="Employee" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__Appointme__IDSer__73BA3083" FromRole="Appointment" ToRole="Service" />
+    <NavigationProperty Name="Cheque" Relationship="Self.FK__Cheque__IDApp__06CD04F7" FromRole="Appointment" ToRole="Cheque" />
+  </EntityType>
+  <EntityType Name="Cab">
+    <Key>
+      <PropertyRef Name="IDCab" />
+    </Key>
+    <Property Name="IDCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="Byte" Nullable="false" />
+    <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDCab__72C60C4A" FromRole="Cab" ToRole="Appointment" />
+  </EntityType>
+  <EntityType Name="Cheque">
+    <Key>
+      <PropertyRef Name="IDCheque" />
+    </Key>
+    <Property Name="IDCheque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IDApp" Type="Int32" />
+    <Property Name="ChequeDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DepAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Cheque__IDApp__06CD04F7" FromRole="Cheque" ToRole="Appointment" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IDClient" />
+    </Key>
+    <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="PassSerial" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PassNumber" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="IDPatient" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDCli__74AE54BC" FromRole="Client" ToRole="Appointment" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Client__IDPatien__6FE99F9F" FromRole="Client" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="IDEmployee" />
+    </Key>
+    <Property Name="IDEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FatherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="PassSerial" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="PassNumber" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDEmp__75A278F5" FromRole="Employee" ToRole="Appointment" />
+    <NavigationProperty Name="User" Relationship="Self.FK__User__IDEmployee__440B1D61" FromRole="Employee" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Medcard">
+    <Key>
+      <PropertyRef Name="IDMedcard" />
+    </Key>
+    <Property Name="IDMedcard" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPatient" Type="Int32" Nullable="false" />
+    <Property Name="CurrentState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Medcard__IDPatie__02FC7413" FromRole="Medcard" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="IDPatient" />
+    </Key>
+    <Property Name="IDPatient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="Byte" Nullable="false" />
+    <Property Name="IDAnimalGender" Type="Int32" />
+    <Property Name="IDAnimalType" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AnimalGender" Relationship="Self.FK__Patient__IDAnima__5CD6CB2B" FromRole="Patient" ToRole="AnimalGender" />
+    <NavigationProperty Name="AnimalType" Relationship="Self.FK__Patient__IDAnima__5DCAEF64" FromRole="Patient" ToRole="AnimalType" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Client__IDPatien__6FE99F9F" FromRole="Patient" ToRole="Client" />
+    <NavigationProperty Name="Medcard" Relationship="Self.FK__Medcard__IDPatie__02FC7413" FromRole="Patient" ToRole="Medcard" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="IDRole" />
+    </Key>
+    <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__User__IDRole__4316F928" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="IDService" />
+    </Key>
+    <Property Name="IDService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Length" Type="Byte" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDSer__73BA3083" FromRole="Service" ToRole="Appointment" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDRole" Type="Int32" />
+    <Property Name="IDEmployee" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__User__IDEmployee__440B1D61" FromRole="User" ToRole="Employee" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__User__IDRole__4316F928" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK__Patient__IDAnima__5CD6CB2B">
+    <End Role="AnimalGender" Type="Self.AnimalGender" Multiplicity="0..1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnimalGender">
+        <PropertyRef Name="IDAnimalGender" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="IDAnimalGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Patient__IDAnima__5DCAEF64">
+    <End Role="AnimalType" Type="Self.AnimalType" Multiplicity="0..1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnimalType">
+        <PropertyRef Name="IDAnimalType" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="IDAnimalType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__IDCab__72C60C4A">
+    <End Role="Cab" Type="Self.Cab" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cab">
+        <PropertyRef Name="IDCab" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IDCab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__IDCli__74AE54BC">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IDClient" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IDClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__IDEmp__75A278F5">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IDEmployee" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IDEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__IDSer__73BA3083">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="IDService" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="IDService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cheque__IDApp__06CD04F7">
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1" />
+    <End Role="Cheque" Type="Self.Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Appointment">
+        <PropertyRef Name="IDApp" />
+      </Principal>
+      <Dependent Role="Cheque">
+        <PropertyRef Name="IDApp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Client__IDPatien__6FE99F9F">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="IDPatient" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IDPatient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__IDEmployee__440B1D61">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="IDEmployee" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IDEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medcard__IDPatie__02FC7413">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="IDPatient" />
+      </Principal>
+      <Dependent Role="Medcard">
+        <PropertyRef Name="IDPatient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__IDRole__4316F928">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="IDRole" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IDRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AnimalGender" EntityType="Self.AnimalGender" />
+    <EntitySet Name="AnimalType" EntityType="Self.AnimalType" />
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" />
+    <EntitySet Name="Cab" EntityType="Self.Cab" />
+    <EntitySet Name="Cheque" EntityType="Self.Cheque" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Medcard" EntityType="Self.Medcard" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK__Patient__IDAnima__5CD6CB2B" Association="Self.FK__Patient__IDAnima__5CD6CB2B">
+      <End Role="AnimalGender" EntitySet="AnimalGender" />
+      <End Role="Patient" EntitySet="Patient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Patient__IDAnima__5DCAEF64" Association="Self.FK__Patient__IDAnima__5DCAEF64">
+      <End Role="AnimalType" EntitySet="AnimalType" />
+      <End Role="Patient" EntitySet="Patient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__IDCab__72C60C4A" Association="Self.FK__Appointme__IDCab__72C60C4A">
+      <End Role="Cab" EntitySet="Cab" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__IDCli__74AE54BC" Association="Self.FK__Appointme__IDCli__74AE54BC">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__IDEmp__75A278F5" Association="Self.FK__Appointme__IDEmp__75A278F5">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__IDSer__73BA3083" Association="Self.FK__Appointme__IDSer__73BA3083">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cheque__IDApp__06CD04F7" Association="Self.FK__Cheque__IDApp__06CD04F7">
+      <End Role="Appointment" EntitySet="Appointment" />
+      <End Role="Cheque" EntitySet="Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Client__IDPatien__6FE99F9F" Association="Self.FK__Client__IDPatien__6FE99F9F">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__IDEmployee__440B1D61" Association="Self.FK__User__IDEmployee__440B1D61">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medcard__IDPatie__02FC7413" Association="Self.FK__Medcard__IDPatie__02FC7413">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Medcard" EntitySet="Medcard" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__IDRole__4316F928" Association="Self.FK__User__IDRole__4316F928">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
