@@ -47,6 +47,7 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Height" Value="80"/>
         <Setter Property="Width" Value="200"/>
+        <Setter Property="Margin" Value="10"/>
     </Style>
     <Style TargetType="Button" x:Key="btnBackButton">
         <Setter Property="BorderBrush" Value="#E5E5E5"/>

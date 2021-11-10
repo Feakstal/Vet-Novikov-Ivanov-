@@ -71,7 +71,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Click="btnCloseWindow_Click">
+                <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Margin="0 0 10 0" Click="btnCloseWindow_Click">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </Button.Effect>

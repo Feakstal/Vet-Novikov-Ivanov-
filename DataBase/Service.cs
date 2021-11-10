@@ -24,6 +24,7 @@ namespace Vet.DataBase
         public string ServiceName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<byte> Length { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }

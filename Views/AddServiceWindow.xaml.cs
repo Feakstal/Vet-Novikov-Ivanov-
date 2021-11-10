@@ -24,7 +24,6 @@ namespace Vet.Views
         {
             if (tboxAddService.Text.Length != 0)
             {
-
                 Entities.Service.Add(new Service
                 {
                     ServiceName = tboxAddService.Text,

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,7 +45,7 @@ namespace Vet.Pages
                 this.IsDeleted = IsDeleted;
             }
 
-            public int IDPatient {get; set; }
+            public int IDPatient { get; set; }
             public string PatientName { get; set; }
             public int Age { get; set; }
             public int IDAnimalGender { get; set; }
@@ -78,9 +77,7 @@ namespace Vet.Pages
                     PatientsGrid.ItemsSource = Entities.Client.ToList();
                 }
                 else
-                {
                     MessageBox.Show("Вы не выбрали пользователя из списка", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
         }
 

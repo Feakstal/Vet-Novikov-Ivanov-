@@ -81,11 +81,17 @@
             </Button>
         </WrapPanel>
         <DataGrid x:Name="PatientsGrid" ItemsSource="{Binding Patient}" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" IsReadOnly="False">
+            <DataGrid.Resources>
+                <DataTemplate x:Key="cbTemplate">
+                    <ComboBox  ItemsSource="{Binding AnimalGender.AnimalGender1}"/>
+                </DataTemplate>
+                <!--SelectedItem="{Binding AnimalGender}"-->
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding IDPatient}"/>
                 <DataGridTextColumn Header="Кличка" Binding="{Binding PatientName}"/>
                 <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"/>
-                <DataGridComboBoxColumn Header="Пол" ItemsSource="{Binding Source=AnimalGender.AnimalGender1, Mode=OneWay}"/>
+                <DataGridTemplateColumn Header="Pol" CellTemplate="{StaticResource cbTemplate}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding AnimalType.AnimalType1}"/>
                 <DataGridTextColumn Header="Удален" Binding="{Binding IsDeleted}"/>
             </DataGrid.Columns>
