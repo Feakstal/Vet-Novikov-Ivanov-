@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vet.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1600"
+      d:DesignHeight="600" d:DesignWidth="300"
       Title="Кабинеты">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,34 +24,12 @@
             <TextBlock  Grid.Row="0"    Text="2 этаж"   Style="{StaticResource tbFloors}" Margin="15"/>
             <StackPanel Grid.Row="1"    VerticalAlignment="Stretch" Orientation="Horizontal">
                 <TextBlock  Grid.Row="1"    Text="1 этаж"   Style="{StaticResource tbFloors}" Margin="15"/>
-                <ListView x:Name="CabsList" Width="auto" Height="auto">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Кабинет">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button x:Name="btnCab" Style="{StaticResource btnCabs}" Content="№кабинета" Click="btnCab1_Click">
-                                            <Button.Effect>
-                                                <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                                            </Button.Effect>
-                                            <Button.Resources>
-                                                <Style TargetType="Border">
-                                                    <Setter Property="CornerRadius" Value="5"/>
-                                                </Style>
-                                            </Button.Resources>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <!--<GridViewColumn Header="Доступен">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Label x:Name="lbAvailable"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>-->
-                        </GridView>
-                    </ListView.View>
+                <ListView Height="auto" Width="auto" VerticalAlignment="Center">
+                    <TextBlock>101</TextBlock>
+                    <TextBlock>102</TextBlock>
+                    <TextBlock>103</TextBlock>
+                    <TextBlock>104</TextBlock>
+                    <TextBlock>105</TextBlock>
                 </ListView>
             </StackPanel>
         </Grid>

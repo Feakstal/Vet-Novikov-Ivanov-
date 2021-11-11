@@ -23,6 +23,7 @@ namespace Vet.DataBase
         public int IDCab { get; set; }
         public byte Number { get; set; }
         public string Purpose { get; set; }
+        public Nullable<bool> IsUsedAtm { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appointment> Appointment { get; set; }

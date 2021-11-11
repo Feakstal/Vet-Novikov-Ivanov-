@@ -88,17 +88,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="Ближайшие записи" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" IsEnabled="False">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnPreps" Content="Препараты" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" IsEnabled="False">
+            <Button x:Name="btnShowApps" Content="Записи" Style="{StaticResource btnAllPandW}" Margin="0 0 10 0" IsEnabled="True" Click="btnShowApps_Click">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                 </Button.Effect>

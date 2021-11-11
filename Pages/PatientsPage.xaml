@@ -91,7 +91,7 @@
                 <DataGridTextColumn Header="Номер" Binding="{Binding IDPatient}"/>
                 <DataGridTextColumn Header="Кличка" Binding="{Binding PatientName}"/>
                 <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"/>
-                <DataGridTemplateColumn Header="Pol" CellTemplate="{StaticResource cbTemplate}"/>
+                <DataGridTemplateColumn Header="Пол" CellTemplate="{StaticResource cbTemplate}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding AnimalType.AnimalType1}"/>
                 <DataGridTextColumn Header="Удален" Binding="{Binding IsDeleted}"/>
             </DataGrid.Columns>

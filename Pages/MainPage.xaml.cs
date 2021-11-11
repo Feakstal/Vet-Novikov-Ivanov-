@@ -64,5 +64,10 @@ namespace Vet.Pages
         {
             NavigationService.Navigate(new PatientsPage());
         }
+
+        private void btnShowApps_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AppointmentsPage());
+        }
     }
 }

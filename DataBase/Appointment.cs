@@ -22,10 +22,12 @@ namespace Vet.DataBase
     
         public int IDApp { get; set; }
         public System.DateTime AppDate { get; set; }
-        public Nullable<int> IDCab { get; set; }
+        public int IDCab { get; set; }
         public Nullable<int> IDService { get; set; }
         public Nullable<int> IDClient { get; set; }
-        public Nullable<int> IDEmployee { get; set; }
+        public int IDEmployee { get; set; }
+        public bool IsDeleted { get; set; }
+        public System.DateTime Created { get; set; }
     
         public virtual Cab Cab { get; set; }
         public virtual Client Client { get; set; }

@@ -25,10 +25,12 @@
           </Key>
           <Property Name="IDApp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AppDate" Type="smalldatetime" Nullable="false" />
-          <Property Name="IDCab" Type="int" />
+          <Property Name="IDCab" Type="int" Nullable="false" />
           <Property Name="IDService" Type="int" />
           <Property Name="IDClient" Type="int" />
-          <Property Name="IDEmployee" Type="int" />
+          <Property Name="IDEmployee" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Cab">
           <Key>
@@ -37,6 +39,7 @@
           <Property Name="IDCab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Number" Type="tinyint" Nullable="false" />
           <Property Name="Purpose" Type="nvarchar(max)" />
+          <Property Name="IsUsedAtm" Type="bit" />
         </EntityType>
         <EntityType Name="Cheque">
           <Key>
@@ -135,7 +138,7 @@
           <Property Name="IDEmployee" Type="int" />
         </EntityType>
         <Association Name="FK__Appointme__IDCab__72C60C4A">
-          <End Role="Cab" Type="Self.Cab" Multiplicity="0..1" />
+          <End Role="Cab" Type="Self.Cab" Multiplicity="1" />
           <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cab">
@@ -159,7 +162,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Appointme__IDEmp__75A278F5">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -352,10 +355,12 @@
           </Key>
           <Property Name="IDApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AppDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IDCab" Type="Int32" />
+          <Property Name="IDCab" Type="Int32" Nullable="false" />
           <Property Name="IDService" Type="Int32" />
           <Property Name="IDClient" Type="Int32" />
-          <Property Name="IDEmployee" Type="Int32" />
+          <Property Name="IDEmployee" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Cab" Relationship="Self.FK__Appointme__IDCab__72C60C4A" FromRole="Appointment" ToRole="Cab" />
           <NavigationProperty Name="Client" Relationship="Self.FK__Appointme__IDCli__74AE54BC" FromRole="Appointment" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Appointme__IDEmp__75A278F5" FromRole="Appointment" ToRole="Employee" />
@@ -369,6 +374,7 @@
           <Property Name="IDCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="Byte" Nullable="false" />
           <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsedAtm" Type="Boolean" />
           <NavigationProperty Name="Appointment" Relationship="Self.FK__Appointme__IDCab__72C60C4A" FromRole="Cab" ToRole="Appointment" />
         </EntityType>
         <EntityType Name="Cheque">
@@ -506,7 +512,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Appointme__IDCab__72C60C4A">
-          <End Role="Cab" Type="Self.Cab" Multiplicity="0..1" />
+          <End Role="Cab" Type="Self.Cab" Multiplicity="1" />
           <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cab">
@@ -530,7 +536,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Appointme__IDEmp__75A278F5">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
@@ -703,6 +709,8 @@
                 <ScalarProperty Name="IDService" ColumnName="IDService" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -712,6 +720,7 @@
                 <ScalarProperty Name="IDCab" ColumnName="IDCab" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="IsUsedAtm" ColumnName="IsUsedAtm" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
