@@ -1,11 +1,12 @@
-﻿<Window x:Class="Vet.Views.AddClientWindow"
+﻿<Window x:Class="Vet.Views.AddAppointmentWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vet.Views"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Добавление клиента" x:Name="ACWindow" Height="700" Width="600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Icon="/Resources/MainIcon.png">
+        Title="Добавление клиента" x:Name="AAWindow" Height="550" Width="600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Icon="/Resources/MainIcon.png">
     <Border Style="{StaticResource WindowBorder}" MouseDown="Drag">
         <Grid>
             <Grid>
@@ -21,12 +22,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
                     <Image Source="/Resources/MainIcon.png" Width="30" Height="30" Margin="5"/>
-                    <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10 0 0 0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
                     <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
@@ -44,59 +43,52 @@
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Фамилия:" FontSize="20"/>
+                    <TextBlock Text="Дата записи:" FontSize="20"/>
                 </WrapPanel>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAddLastName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <xctk:DateTimePicker Grid.Row="1" Grid.Column="1" x:Name="dtp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="auto" Margin="10"/>
+
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAppointmentDate" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1" Height="1">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
                 <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Имя:" FontSize="20"/>
+                    <TextBlock Text="Номер кабинета:" FontSize="20"/>
                 </WrapPanel>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxAddName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxCabNumber" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Отчество:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddFatherName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <WrapPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                    <TextBlock Text="Услуга:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddService" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Телефон:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" x:Name="tboxAddPhone" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <WrapPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                    <TextBlock Text="Фамилия клиента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="tboxAddClientSurname" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
                 <WrapPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Серия:" FontSize="20"/>
+                    <TextBlock Text="Фамилия сотрудника:" FontSize="20"/>
                 </WrapPanel>
-                <TextBox Grid.Row="5" Grid.Column="1" x:Name="tboxAddSeries" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="tboxAddEmployeeSurname" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <WrapPanel Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Номер:" FontSize="20"/>
-                </WrapPanel>
-                <TextBox Grid.Row="6" Grid.Column="1" x:Name="tboxAddPassportNumber" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Кличка пациента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="7" Grid.Column="1" x:Name="tboxAddPatient" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <Button x:Name="btnSaveClient" Grid.Column="1" Grid.Row="8" Content="Сохранить" Style="{StaticResource btnAllPandW}" Width="150" Height="50" Click="btnSaveClient_Click">
+                <Button x:Name="btnSaveApp" Grid.Column="1" Grid.Row="6" Content="Сохранить" Style="{StaticResource btnAllPandW}" Width="150" Height="50" Click="btnSaveApp_Click">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </Button.Effect>

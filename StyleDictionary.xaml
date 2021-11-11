@@ -76,8 +76,11 @@
         <Setter Property="Background" Value="#E5E5E5"/>
         <Setter Property="FontFamily" Value="Franklin Gothic Medium"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Height" Value="100"/>
-        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     <Style TargetType="ComboBox" x:Key="cbox">
         <Setter Property="Width" Value="200"/>
