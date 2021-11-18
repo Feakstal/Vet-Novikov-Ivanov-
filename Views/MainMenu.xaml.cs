@@ -25,7 +25,6 @@ namespace Vet.Views
             MM = this;
             employee = Entities.Employee.Find(AuthWindow.authUser.Employee.IDEmployee);
             frmLoader.Navigate(new MainPage());
-            frmLoader2.Navigate(new SchedulePage());
             tbkFIO.Text = AuthWindow.authUser.Employee.Surname + " " + AuthWindow.authUser.Employee.Name + " " + AuthWindow.authUser.Employee.FatherName;
             tbkRank.Text = AuthWindow.authUser.Role.RoleName;
             tbxPhone.Text = employee.Phone;

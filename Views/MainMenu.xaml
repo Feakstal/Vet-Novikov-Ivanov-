@@ -83,12 +83,7 @@
                 </Button>
             </WrapPanel>
             <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" x:Name="frmLoader" NavigationUIVisibility="Hidden"/>
-                <Frame Grid.Column="1" x:Name="frmLoader2" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" Margin="25"/>
             </Grid>
         </Grid>
     </Border>

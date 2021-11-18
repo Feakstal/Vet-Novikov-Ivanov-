@@ -8,97 +8,31 @@
         Title="Добавление клиента" x:Name="ACWindow" Height="700" Width="600" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Icon="/Resources/MainIcon.png">
     <Border Style="{StaticResource WindowBorder}" MouseDown="Drag">
         <Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="4*"/>
-                    <ColumnDefinition Width="6*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="/Resources/MainIcon.png" Width="30" Height="30" Margin="5"/>
-                    <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10 0 0 0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </WrapPanel>
-                <WrapPanel Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-                    <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
-                    <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
-                    <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Click="btnCloseWindow_Click">
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                        </Button.Effect>
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-                </WrapPanel>
-                <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Фамилия:" FontSize="20"/>
-                </WrapPanel>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAddLastName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Имя:" FontSize="20"/>
-                </WrapPanel>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxAddName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Отчество:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddFatherName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Телефон:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" x:Name="tboxAddPhone" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <WrapPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Серия:" FontSize="20"/>
-                </WrapPanel>
-                <TextBox Grid.Row="5" Grid.Column="1" x:Name="tboxAddSeries" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <WrapPanel Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Номер:" FontSize="20"/>
-                </WrapPanel>
-                <TextBox Grid.Row="6" Grid.Column="1" x:Name="tboxAddPassportNumber" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Кличка пациента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="7" Grid.Column="1" x:Name="tboxAddPatient" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <Button x:Name="btnSaveClient" Grid.Column="1" Grid.Row="8" Content="Сохранить" Style="{StaticResource btnAllPandW}" Width="150" Height="50" Click="btnSaveClient_Click">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="/Resources/MainIcon.png" Width="30" Height="30" Margin="5"/>
+                <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10 0 0 0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
+                <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
+                <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Click="btnCloseWindow_Click">
                     <Button.Effect>
-                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </Button.Effect>
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -106,7 +40,71 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-            </Grid>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                <TextBlock Text="Фамилия:" FontSize="20"/>
+            </WrapPanel>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAddLastName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                <TextBlock Text="Имя:" FontSize="20"/>
+            </WrapPanel>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxAddName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Отчество:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddFatherName" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Телефон:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="tboxAddPhone" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <WrapPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                <TextBlock Text="Серия:" FontSize="20"/>
+            </WrapPanel>
+            <TextBox Grid.Row="5" Grid.Column="1" x:Name="tboxAddSeries" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <WrapPanel Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="*" FontSize="20" Foreground="Red"/>
+                <TextBlock Text="Номер:" FontSize="20"/>
+            </WrapPanel>
+            <TextBox Grid.Row="6" Grid.Column="1" x:Name="tboxAddPassportNumber" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Кличка пациента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="7" Grid.Column="1" x:Name="tboxAddPatient" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </TextBox.Effect>
+            </TextBox>
+            <Button x:Name="btnSaveClient" Grid.Column="1" Grid.Row="8" Content="Сохранить" Style="{StaticResource btnAllPandW}" Width="150" Height="50" Click="btnSaveClient_Click">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
     </Border>
 </Window>

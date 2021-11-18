@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -76,16 +75,6 @@ namespace Vet.Pages
 
         private void btnOpenApp_Click(object sender, RoutedEventArgs e)
         {
-            EditClient((Appointment)LvApps.SelectedItem);
-        }
-
-        private void EditClient(Appointment app)
-        {
-            if(app != null)
-            {
-                dpAppDate.Text = app.AppDate.ToString();
-                tblockLastNameOfClient.Text = Entities.Client.Where(i => i.IDClient == app.IDClient).Select(i => i.Surname).FirstOrDefault();
-            }
         }
     }
 }
