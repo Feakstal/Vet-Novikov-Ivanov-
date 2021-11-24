@@ -39,21 +39,21 @@
                     </Button>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Название услуги:" FontSize="20"/>
+                    <TextBlock Text="*" FontSize="20" Foreground="Red" Style="{StaticResource tbInfo}"/>
+                    <TextBlock Text="Название услуги:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAddService" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Цена:" FontSize="20"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="Цена:" FontSize="20"/>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxAddPrice" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Длительность сеанса:" FontSize="20"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="Длительность сеанса:" FontSize="20"/>
                 <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddLength" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>

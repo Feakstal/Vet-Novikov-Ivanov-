@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Vet.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="900"
+      d:DesignHeight="450" d:DesignWidth="1600"
       Title="Пациенты">
     <Grid>
         <Grid.RowDefinitions>
@@ -49,6 +49,16 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button x:Name="btnEditApp" Style="{StaticResource btnAllPandW}" Content="Редактировать запись" Click="btnEditApp_Click" Margin="0 10 15 0">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <Button x:Name="btnDelete" Style="{StaticResource btnAllPandW}" Content="Удалить запись" Click="btnDelete_Click" Margin="0 10 15 0">
                 <Button.Effect>
                     <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
@@ -80,21 +90,17 @@
                 </Button.Resources>
             </Button>
         </WrapPanel>
-        <DataGrid x:Name="PatientsGrid" ItemsSource="{Binding Patient}" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" IsReadOnly="False">
-            <DataGrid.Resources>
-                <DataTemplate x:Key="cbTemplate">
-                    <ComboBox  ItemsSource="{Binding AnimalGender.AnimalGender1}"/>
-                </DataTemplate>
-                <!--SelectedItem="{Binding AnimalGender}"-->
-            </DataGrid.Resources>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding IDPatient}"/>
-                <DataGridTextColumn Header="Кличка" Binding="{Binding PatientName}"/>
-                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"/>
-                <DataGridTemplateColumn Header="Пол" CellTemplate="{StaticResource cbTemplate}"/>
-                <DataGridTextColumn Header="Тип" Binding="{Binding AnimalType.AnimalType1}"/>
-                <DataGridTextColumn Header="Удален" Binding="{Binding IsDeleted}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView Grid.Row="1" x:Name="LvPatients" ItemsSource="{Binding Patient}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Номер" Width="auto" DisplayMemberBinding="{Binding IDPatient}"/>
+                    <GridViewColumn Header="Кличка" Width="auto" DisplayMemberBinding="{Binding PatientName}"/>
+                    <GridViewColumn Header="Возраст" Width="auto" DisplayMemberBinding="{Binding Age}"/>
+                    <GridViewColumn Header="Пол" Width="auto" DisplayMemberBinding="{Binding AnimalGender.AnimalGender1}"/>
+                    <GridViewColumn Header="Вид" Width="auto" DisplayMemberBinding="{Binding AnimalType.AnimalType1}"/>
+                    <GridViewColumn Header="Удален" Width="auto" DisplayMemberBinding="{Binding IsDeleted}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

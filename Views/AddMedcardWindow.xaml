@@ -25,8 +25,8 @@
                     <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10 0 0 0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-                    <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
-                    <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                    <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Style="{StaticResource tbInfo}"/>
+                    <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" Style="{StaticResource tbInfo}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
                     <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Click="btnCloseWindow_Click">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
@@ -39,8 +39,8 @@
                     </Button>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Кличка пациента:" FontSize="20"/>
+                    <TextBlock Text="*" FontSize="20" Foreground="Red" Style="{StaticResource tbInfo}"/>
+                    <TextBlock Text="Кличка пациента:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAddPatient" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
@@ -48,15 +48,15 @@
                     </TextBox.Effect>
                 </TextBox>
                 <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Статус:" FontSize="20"/>
+                    <TextBlock Text="*" FontSize="20" Foreground="Red" Style="{StaticResource tbInfo}"/>
+                    <TextBlock Text="Статус:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxAddCurrentState" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
                     </TextBox.Effect>
                 </TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Text="История заболеваний:" FontSize="20"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="История заболеваний:" FontSize="20"/>
                 <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddHistory" Style="{StaticResource tbAuthWindow}" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>

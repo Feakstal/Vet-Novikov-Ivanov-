@@ -17,16 +17,17 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.9*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="5.7*"/>
-                        <RowDefinition Height="1.3*"/>
+                        <RowDefinition Height="3.5*"/>
+                        <RowDefinition Height="4.1*"/>
+                        <RowDefinition Height="1.5*"/>
                     </Grid.RowDefinitions>
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
                         <Image Source="/Resources/MainIcon.png" Height="30" Width="30"/>
-                        <TextBlock Text="Записи №" Style="{StaticResource tbTitlePage}" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock x:Name="tblockAppNumberTitle" Text="Записи №" Style="{StaticResource tbTitlePage}" VerticalAlignment="Center" Margin="5"/>
                     </WrapPanel>
                     <Grid Grid.Row="1">
                         <Grid.RowDefinitions>
+                            <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -44,126 +45,155 @@
                         <TextBlock Text="Фамилия врача:" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Style="{StaticResource tbInfo}"/>
                         <DatePicker x:Name="dpAppDate" Grid.Row="0" Grid.Column="1" Height="25" Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                         <TextBlock x:Name="tblockNumberOfCab" Text="" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
-                        <TextBox x:Name="tboxService" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Width="150" Background="Transparent" BorderBrush="Transparent"/>
+                        <ComboBox x:Name="cbService" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Width="150" Background="Transparent" BorderBrush="Transparent"/>
                         <TextBlock x:Name="tblockLastNameOfClient" Text="" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
                         <TextBlock x:Name="tblockLastNameOfDoc" Text="" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
+                        <TextBlock x:Name="tblockStatus" Text="" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
+                        <TextBlock Text="Статус:" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
                     </Grid>
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="Номер медкарты:" Margin="10"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Style="{StaticResource tbAuthWindow}" Text="(запись не выбрана)" x:Name="tboxIdMed"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="Номер пациента:" Margin="10"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Style="{StaticResource tbAuthWindow}" Text="(запись не выбрана)" x:Name="tboxIdPat"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="Текущее состояние:" Margin="10"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Style="{StaticResource tbAuthWindow}" Text="(запись не выбрана)" x:Name="tboxState"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right"  VerticalAlignment="Center" Style="{StaticResource tbInfo}" Text="История болезней:" Margin="10"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Style="{StaticResource tbAuthWindow}" Text="(запись не выбрана)" x:Name="tboxHistory"/>
                     </Grid>
-                    <Button Grid.Row="3" x:Name="btnSave2" Style="{StaticResource btnAllPandW}" Content="Сохранить" Click="btnSave_Click">
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                        </Button.Effect>
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
-                            </Style>
-                        </Button.Resources>
+                    <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="btnStartSession" Style="{StaticResource btnAllPandW}" Content="Начать сеанс" Click="btnStartSession_Click" Height="50" Width="150">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                            </Button.Effect>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
                     </Button>
+                        <Button x:Name="btnEndSession" Style="{StaticResource btnAllPandW}" Content="Закончить сеанс" Click="btnEndSession_Click" Height="50" Width="150">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                            </Button.Effect>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </WrapPanel>
                 </Grid>
             </Border>
         </Grid>
         <Grid Grid.Column="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="7.5*"/>
-            <RowDefinition Height="1.5*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" HorizontalAlignment="left" Margin="0 0 150 0" Orientation="Horizontal">
-            <TextBlock Text="Записи" Margin="5" Style="{StaticResource tbTitlePage}"/>
-        </StackPanel>
-        <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 0 0 0">
-            <Grid>
-                <TextBox x:Name="tboxSearch" Style="{StaticResource tbAuthWindow}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="250" TextChanged="tboxSearch_TextChanged">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
-                <TextBlock IsHitTestVisible="False" Text="Поиск" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
-                    <TextBlock.Style>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=tboxSearch}" Value="">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                    <Setter Property="Foreground" Value="Gray"/>
-                                </DataTrigger>
-                            </Style.Triggers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7.5*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Text="Записи" Margin="5" Style="{StaticResource tbTitlePage}"/>
+            </StackPanel>
+            <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1">
+                <Grid>
+                    <TextBox x:Name="tboxSearch" Style="{StaticResource tbAuthWindow}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="250" TextChanged="tboxSearch_TextChanged">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <TextBlock IsHitTestVisible="False" Text="Поиск" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=tboxSearch}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Setter Property="Foreground" Value="Gray"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Margin="45,1,45,0">
+                <Button x:Name="btnOpenApp" Style="{StaticResource btnAppointment}" Content="Открыть запись" Click="btnOpenApp_Click" Margin="0 10 15 0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
                         </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-            </Grid>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center" Grid.Row="2">
-            <Button x:Name="btnOpenApp" Style="{StaticResource btnAppointmentStyle}" Content="Открыть запись" Click="btnOpenApp_Click" Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnAddAppointmentWindow" Style="{StaticResource btnAppointmentStyle}" Content="Добавить запись" Click="btnAddAppointmentWindow_Click" Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnDelete" Style="{StaticResource btnAppointmentStyle}" Content="Удалить запись" Click="btnDelete_Click" Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnSave" Style="{StaticResource btnAppointmentStyle}" Content="Сохранить" Click="btnSave_Click"  Margin="0 10 15 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="btnGoBack" Style="{StaticResource btnAppointmentStyle}" Content="Главное меню" Click="btnGoBack_Click" Margin="0 10 0 0">
-                <Button.Effect>
-                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
-                </Button.Effect>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </WrapPanel>
-        <ListView Grid.Row="1" x:Name="LvApps">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Номер" Width="50" DisplayMemberBinding="{Binding IDApp}"/>
-                    <GridViewColumn Header="Дата записи" Width="auto" DisplayMemberBinding="{Binding AppDate}"/>
-                    <GridViewColumn Header="Дата создания записи" Width="auto" DisplayMemberBinding="{Binding Created}"/>
-                    <GridViewColumn Header="Номер кабинета" Width="100" DisplayMemberBinding="{Binding Cab.Number}"/>
-                    <GridViewColumn Header="Услуга" Width="auto" DisplayMemberBinding="{Binding Service.ServiceName}"/>
-                    <GridViewColumn Header="Фамилия клиента" Width="auto" DisplayMemberBinding="{Binding Client.Surname}"/>
-                    <GridViewColumn Header="Фамилия врача" Width="auto" DisplayMemberBinding="{Binding Employee.Surname}"/>
-                    <GridViewColumn Header="Удален" Width="80" DisplayMemberBinding="{Binding IsDeleted}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </Grid>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnAddAppointmentWindow" Style="{StaticResource btnAppointment}" Content="Добавить" Click="btnAddAppointmentWindow_Click" Margin="0 10 15 0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnEditAppointment" Style="{StaticResource btnAppointment}" Content="Редактировать" Click="btnEditAppointment_Click" Margin="0 10 15 0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnDelete" Style="{StaticResource btnAppointment}" Content="Удалить" Click="btnDelete_Click" Margin="0 10 15 0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="btnGoBack" Style="{StaticResource btnAppointment}" Content="Главное меню" Click="btnGoBack_Click" Margin="0 10 0 0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </Button.Effect>
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+            <ListView Grid.Row="1" x:Name="LvApps">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Номер" Width="50" DisplayMemberBinding="{Binding IDApp}"/>
+                        <GridViewColumn Header="Дата записи" Width="auto" DisplayMemberBinding="{Binding AppDate, StringFormat='dd-MM-yyyy HH:MM'}"/>
+                        <GridViewColumn Header="Дата создания записи" Width="auto" DisplayMemberBinding="{Binding Created, StringFormat='dd-MM-yyyy HH:MM'}"/>
+                        <GridViewColumn Header="Номер кабинета" Width="100" DisplayMemberBinding="{Binding Cab.Number}"/>
+                        <GridViewColumn Header="Услуга" Width="auto" DisplayMemberBinding="{Binding Service.ServiceName}"/>
+                        <GridViewColumn Header="Фамилия клиента" Width="auto" DisplayMemberBinding="{Binding Client.Surname}"/>
+                        <GridViewColumn Header="Фамилия врача" Width="auto" DisplayMemberBinding="{Binding Employee.Surname}"/>
+                        <GridViewColumn Header="Удален" Width="80" DisplayMemberBinding="{Binding IsDeleted}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

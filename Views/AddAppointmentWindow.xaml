@@ -23,13 +23,13 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="/Resources/MainIcon.png" Width="30" Height="30" Margin="5"/>
                     <TextBlock x:Name="tblockTitle" Text="" Style="{StaticResource tbTitlePage}" Margin="10" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
-                    <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
-                    <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                    <TextBlock Text="*" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" Style="{StaticResource tbInfo}"/>
+                    <TextBlock Text=" - поля, обязательные для заполнения" FontSize="14" Style="{StaticResource tbInfo}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 15 0"/>
                     <Button x:Name="btnCloseWindow" Content="X" Style="{StaticResource btnAllPandW}" Width="30" Height="30" FontSize="20" Click="btnCloseWindow_Click">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
@@ -43,36 +43,30 @@
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Дата записи:" FontSize="20"/>
+                    <TextBlock Text="Дата записи:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <xctk:DateTimePicker Grid.Row="1" Grid.Column="1" x:Name="dtp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="auto" Margin="10"/>
-
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="tboxAppointmentDate" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="1" Height="1">
-                    <TextBox.Effect>
-                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
                 <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Номер кабинета:" FontSize="20"/>
+                    <TextBlock Text="Номер кабинета:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="tboxCabNumber" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cboxCabNumber" Margin="10 0 0 0" Style="{StaticResource cbox}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <ComboBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
+                    </ComboBox.Effect>
+                </ComboBox>
                 <WrapPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Услуга:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="Услуга:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="tboxAddService" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBox.Effect>
+                <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cboxService" Margin="10 0 0 0" Style="{StaticResource cbox}" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <ComboBox.Effect>
                         <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
-                    </TextBox.Effect>
-                </TextBox>
+                    </ComboBox.Effect>
+                </ComboBox>
                 <WrapPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Фамилия клиента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <TextBlock Text="Фамилия клиента:" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <TextBox Grid.Row="4" Grid.Column="1" x:Name="tboxAddClientSurname" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
@@ -81,7 +75,7 @@
                 </TextBox>
                 <WrapPanel Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="*" FontSize="20" Foreground="Red"/>
-                    <TextBlock Text="Фамилия сотрудника:" FontSize="20"/>
+                    <TextBlock Text="Фамилия сотрудника:" FontSize="20" Style="{StaticResource tbInfo}"/>
                 </WrapPanel>
                 <TextBox Grid.Row="5" Grid.Column="1" x:Name="tboxAddEmployeeSurname" Style="{StaticResource tbAuthWindow}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox.Effect>
